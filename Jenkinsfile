@@ -22,6 +22,14 @@ node {
             sh 'echo "Tests passed"'
         }
     }
+   
+   stage('Scan') {
+       twistlockScan ca: '', cert: '', compliancePolicy: 'warn', \
+         dockerAddress: 'unix:///var/run/docker.sock', \
+         ignoreImageBuildTime: false, key: '', logLevel: 'true', \
+         policy: 'warn', repository: 'keylowe/sandbox', \
+         requirePackageUpdate: false, tag: 'test', timeout: 10
+   }
 
     stage('Push image') {
         /* Finally, we'll push the image with two tags:
