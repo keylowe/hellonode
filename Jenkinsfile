@@ -43,6 +43,3 @@ node {
     }
     
 }
-
-
-#Extra_copy
