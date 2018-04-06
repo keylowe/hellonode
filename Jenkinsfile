@@ -27,7 +27,7 @@ node {
        twistlockScan ca: '', cert: '', compliancePolicy: 'warn', \
          dockerAddress: 'unix:///var/run/docker.sock', \
          ignoreImageBuildTime: false, key: '', logLevel: 'true', \
-         policy: 'warn', repository: 'keylowe/sandbox', \
+         policy: 'warn', image: 'keylowe/sandbox', \
          requirePackageUpdate: false, tag: 'latest', timeout: 10
    }
 
