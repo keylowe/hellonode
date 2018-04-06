@@ -28,7 +28,7 @@ node {
          dockerAddress: 'unix:///var/run/docker.sock', \
          ignoreImageBuildTime: false, key: '', logLevel: 'true', \
          policy: 'warn', repository: 'keylowe/sandbox', \
-         requirePackageUpdate: false, tag: 'test', timeout: 10
+         requirePackageUpdate: false, tag: 'latest', timeout: 10
    }
 
     stage('Push image') {
