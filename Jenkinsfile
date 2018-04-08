@@ -30,6 +30,10 @@ node {
          policy: 'warn', repository: 'keylowe/sandbox', \
          requirePackageUpdate: false, tag: 'latest', timeout: 10
    }
+   
+    stage('Publish results') {
+    twistlockPublish ca: '', cert: '', dockerAddress: 'unix:///var/run/docker.sock', image: 'sandbox:latest', key: '', logLevel: 'true', timeout: 10
+   }
 
     stage('Push image') {
         /* Finally, we'll push the image with two tags:
