@@ -24,7 +24,7 @@ node {
     }
    
    stage('Scan') {
-       twistlockScan ca: '', cert: '', compliancePolicy: 'warn', \
+       twistlockScan ca: '', cert: '', compliancePolicy: 'high', \
          dockerAddress: 'unix:///var/run/docker.sock', \
          ignoreImageBuildTime: false, key: '', logLevel: 'true', \
          policy: 'warn', repository: 'keylowe/sandbox', \
