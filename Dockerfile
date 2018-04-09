@@ -1,5 +1,5 @@
 # use a node base image
-FROM node:latest
+FROM node:alpine
 
 # set maintainer
 LABEL maintainer "miiro@getintodevops.com"
