@@ -14,21 +14,19 @@ node {
         app = docker.build("keylowe/sandbox")
     }
 
-    stage('Test image') {
-        /* Ideally, we would run a test framework against our image.
-         * For this example, we're using a Volkswagen-type approach ;-) */
-
-        app.inside {
-            sh 'echo "Tests passed"'
-        }
-    }
-   
    stage('Scan') {
-    twistlockScan ca: '', cert: '', compliancePolicy: 'warn', dockerAddress: 'unix:///var/run/docker.sock', gracePeriodDays: 0, ignoreImageBuildTime: false, image: 'sandbox:latest', key: '', logLevel: 'true', policy: 'warn', requirePackageUpdate: false, timeout: 10
+       twistlockScan ca: '', cert: '', compliancePolicy: 'warn', \
+         dockerAddress: 'unix:///var/run/docker.sock', \
+         ignoreImageBuildTime: false, key: '', logLevel: 'true', \
+         policy: 'warn', repository: 'keylowe/sandbox', \
+         requirePackageUpdate: false, tag: 'test', timeout: 10
    }
-   
-    stage('Publish results') {
-    twistlockPublish ca: '', cert: '', dockerAddress: 'unix:///var/run/docker.sock', image: 'sandbox:latest', key: '', logLevel: 'true', timeout: 10
+
+   stage('Publish') {
+       twistlockPublish ca: '', cert: '', \
+         dockerAddress: 'unix:///var/run/docker.sock', key: '', \
+         logLevel: 'true', repository: 'keylowe/sandbox', tag: 'test', \
+         timeout: 10
    }
 
     stage('Push image') {
