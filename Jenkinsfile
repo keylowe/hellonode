@@ -24,11 +24,7 @@ node {
     }
    
    stage('Scan') {
-       twistlockScan ca: '', cert: '', compliancePolicy: 'warn', \
-         dockerAddress: 'unix:///var/run/docker.sock', \
-         ignoreImageBuildTime: false, key: '', logLevel: 'true', \
-         policy: 'warn', repository: 'keylowe/sandbox', \
-         requirePackageUpdate: false, tag: 'latest', timeout: 10
+    twistlockScan ca: '', cert: '', compliancePolicy: 'warn', dockerAddress: 'unix:///var/run/docker.sock', gracePeriodDays: 0, ignoreImageBuildTime: false, image: 'sandbox:latest', key: '', logLevel: 'true', policy: 'warn', requirePackageUpdate: false, timeout: 10
    }
    
     stage('Publish results') {
