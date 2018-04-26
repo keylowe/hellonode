@@ -32,7 +32,7 @@ node {
    }
    
     stage('Publish results') {
-    twistlockPublish ca: '', cert: '', dockerAddress: 'unix:///var/run/docker.sock', image: 'sandbox:latest', key: '', logLevel: 'true', timeout: 10
+    twistlockPublish ca: '', cert: '', dockerAddress: 'unix:///var/run/docker.sock', image: 'keylowe/sandbox:latest', key: '', logLevel: 'true', timeout: 10
    }
 
     stage('Push image') {
