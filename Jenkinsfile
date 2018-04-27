@@ -15,18 +15,11 @@ node {
     }
 
    stage('Scan') {
-       twistlockScan ca: '', cert: '', compliancePolicy: 'warn', \
-         dockerAddress: 'unix:///var/run/docker.sock', \
-         ignoreImageBuildTime: false, key: '', logLevel: 'true', \
-         policy: 'warn', repository: 'keylowe/sandbox', \
-         requirePackageUpdate: false, tag: 'latest', timeout: 10
+        twistlockScan ca: '', cert: '', compliancePolicy: 'warn', dockerAddress: 'unix:///var/run/docker.sock', gracePeriodDays: 0, ignoreImageBuildTime: false, image: 'sandbox', key: '', logLevel: 'true', policy: 'warn', requirePackageUpdate: false, timeout: 10
    }
 
    stage('Publish') {
-       twistlockPublish ca: '', cert: '', \
-         dockerAddress: 'unix:///var/run/docker.sock', key: '', \
-         logLevel: 'true', repository: 'keylowe/sandbox', tag: 'latest', \
-         timeout: 10
+        twistlockPublish ca: '', cert: '', dockerAddress: 'unix:///var/run/docker.sock', image: 'sandbox', key: '', logLevel: 'true', timeout: 10
    }
 
     stage('Push image') {
