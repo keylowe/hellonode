@@ -14,10 +14,6 @@ node {
         app = docker.build("keylowe/sandbox")
     }
 
-   stage('Scan') {
-        twistlockScan ca: '', cert: '', compliancePolicy: 'warn', dockerAddress: 'unix:///var/run/docker.sock', gracePeriodDays: 0, ignoreImageBuildTime: false, image: 'keylowe/sandbox', key: '', logLevel: 'true', policy: 'warn', requirePackageUpdate: false, timeout: 10
-   }
-
    stage('Publish') {
         twistlockPublish ca: '', cert: '', dockerAddress: 'unix:///var/run/docker.sock', image: 'keylowe/sandbox', key: '', logLevel: 'true', timeout: 10
    }
