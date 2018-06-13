@@ -16,7 +16,8 @@ node {
     
     stage('Publish') {
             twistlockPublish ca: '', cert: '', dockerAddress: 'unix:///var/run/docker.sock', ignoreImageBuildTime: true, image: 'keylowe/sandbox', key: '', logLevel: 'true', timeout: 10
-    }	    }
+        }	    
+    }
 
     stage('Push image') {
         /* Finally, we'll push the image with two tags:
